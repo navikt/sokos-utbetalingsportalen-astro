@@ -2,7 +2,7 @@ import { defineMiddleware } from 'astro/middleware';
 import { loginUrl } from './urls';
 import { isInternal } from './utils';
 import { getToken, validateToken } from '@navikt/oasis';
-import {isLocal} from "../utils/server/urls.ts";
+import { isLocal } from '../utils/server/urls.ts';
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const token = getToken(context.request.headers);
