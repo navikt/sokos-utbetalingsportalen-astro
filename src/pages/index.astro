@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Heading } from '@navikt/ds-react';
-import AstroIslandExample from '@src/components/astro-island/AstroIsland.astro';
+import AstroIsland from "../components/astro-island/AstroIsland.astro";
 ---
 
 <Layout>
@@ -10,7 +10,7 @@ import AstroIslandExample from '@src/components/astro-island/AstroIsland.astro';
       <Heading size={'large'}> sokos-utbetalingsportalen-astro-azure </Heading>
     </div>
   </div>
-  <AstroIslandExample server:defer>
+  <AstroIsland server:defer>
     <div slot="fallback">Navn: Laster inn data...</div>
-  </AstroIslandExample>
+  </AstroIsland>
 </Layout>

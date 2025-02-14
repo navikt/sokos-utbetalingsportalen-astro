@@ -1,4 +1,4 @@
-import { getEnvironment } from '@src/utils/server/urls.ts';
+import {getEnvironment} from "../utils/server/urls.ts";
 
 const REDIRECT_URI = {
   local: 'http://localhost:4321/',
