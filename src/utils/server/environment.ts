@@ -1,7 +1,7 @@
 const isDevelopment = process.env.NAIS_CLUSTER_NAME === 'dev-gcp';
 export const isLocal = process.env.NODE_ENV === 'development';
 
-export const getEnvironment = () => {
+export const getServerSideEnvironment = () => {
   if (isDevelopment) {
     return 'dev';
   }

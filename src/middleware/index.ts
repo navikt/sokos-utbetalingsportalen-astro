@@ -1,8 +1,8 @@
+import { getToken, validateToken } from '@navikt/oasis';
 import { defineMiddleware } from 'astro/middleware';
+import { isLocal } from '../utils/server/urls.ts';
 import { loginUrl } from './urls';
 import { isInternal } from './utils';
-import { getToken, validateToken } from '@navikt/oasis';
-import { isLocal } from '../utils/server/urls.ts';
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const token = getToken(context.request.headers);
@@ -34,6 +34,12 @@ export const onRequest = defineMiddleware(async (context, next) => {
   }
 
   context.locals.token = token;
+
+  context.locals.userInfo = {
+    navIdent: validation.payload.NAVident as string,
+    name: validation.payload.name as string,
+    adGroups: validation.payload.groups as [],
+  }
 
   return next();
 });
