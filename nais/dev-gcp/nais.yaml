@@ -32,6 +32,7 @@ spec:
       autoLoginIgnorePaths:
         - /internal/*
   accessPolicy:
+    outbound:
       external:
         - host: sokos-oppdrag.dev-fss-pub.nais.io
   ingresses:
