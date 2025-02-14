@@ -1,10 +1,10 @@
 apiVersion: 'nais.io/v1alpha1'
 kind: 'Application'
 metadata:
-  name: tms-astro-template
-  namespace: min-side
+  name: sokos-utbetalingsportalen-astro
+  namespace: okonomi
   labels:
-    team: min-side
+    team: okonomi
 spec:
   image: {{image}}
   port: 3000
@@ -18,11 +18,11 @@ spec:
     min: 2
     max: 4
   ingresses:
-    - 'https://tms-astro-template.ansatt.nav.no'
+    - 'https://sokos-utbetalingsportalen-astro.ansatt.nav.no'
   accessPolicy:
     outbound:
       rules:
-        - application: tms-astro-template
+        - application: sokos-utbetalingsportalen-astro
   azure:
     application:
       enabled: true

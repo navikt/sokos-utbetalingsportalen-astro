@@ -15,8 +15,8 @@ type EnvUrl = { development: string; production: string; local: string };
 
 const BASE_URL: EnvUrl = {
   local: 'http://localhost:3000',
-  development: 'https://www.ansatt.dev.nav.no/tms-astro-template',
-  production: 'https://www.nav.no/tms-astro-template',
+  development: 'https://www.ansatt.dev.nav.no/sokos-utbetalingsportalen-astro',
+  production: 'https://www.nav.no/sokos-utbetalingsportalen-astro',
 };
 
 export const baseUrl = BASE_URL[getEnvironment()];
