@@ -2,10 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import { Heading } from '@navikt/ds-react';
 import MicrofrontendContainer from '../components/microfrontend/MicrofrontendContainer';
-import {getOboToken} from "../utils/server/token";
+import { getOboToken } from '../utils/server/token';
 
 const info = Astro.locals.userInfo;
-    ---
+---
 
 <Layout>
   <div>
@@ -13,6 +13,5 @@ const info = Astro.locals.userInfo;
       <Heading size={'large'}> sokos-utbetalingsportalen-astro-azure </Heading>
     </div>
   </div>
-  <MicrofrontendContainer info={info} client:only="react">
-  </MicrofrontendContainer>
+  <MicrofrontendContainer info={info} client:only="react" />
 </Layout>

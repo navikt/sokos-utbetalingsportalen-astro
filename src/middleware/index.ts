@@ -39,7 +39,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
     navIdent: validation.payload.NAVident as string,
     name: validation.payload.name as string,
     adGroups: validation.payload.groups as [],
-  }
+  };
 
   return next();
 });

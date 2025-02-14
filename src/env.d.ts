@@ -6,7 +6,7 @@ declare namespace App {
     userInfo: {
       navIdent: string;
       name: string;
-      adGroups: string[]
-    }
+      adGroups: string[];
+    };
   }
 }

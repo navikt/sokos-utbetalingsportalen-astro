@@ -1,6 +1,6 @@
-import { ChatExclamationmarkIcon } from "@navikt/aksel-icons";
-import { BodyShort, Heading, Link } from "@navikt/ds-react";
-import styles from "./ErrorPage.module.css";
+import { ChatExclamationmarkIcon } from '@navikt/aksel-icons';
+import { BodyShort, Heading, Link } from '@navikt/ds-react';
+import styles from './ErrorPage.module.css';
 
 export type ErrorPageType = {
   title?: string;
@@ -8,16 +8,16 @@ export type ErrorPageType = {
 };
 
 export default function ErrorPage({
-  title = "Feil",
-  message = "En feil har skjedd! Prøv logg inn på nytt.",
+  title = 'Feil',
+  message = 'En feil har skjedd! Prøv logg inn på nytt.',
 }: ErrorPageType) {
   return (
-    <div className={styles["error-page"]}>
+    <div className={styles['error-page']}>
       <ChatExclamationmarkIcon
         title="Chat exclamationmark ikon"
         fontSize="6rem"
       />
-      <Heading level="1" size={"medium"}>
+      <Heading level="1" size={'medium'}>
         {title}
       </Heading>
       <BodyShort>{message}</BodyShort>
@@ -31,8 +31,8 @@ export default function ErrorPage({
 export function NoAccess() {
   return (
     <ErrorPage
-      title={"Mangler tilgang"}
-      message={"Du har ikke tilgang til denne siden!"}
+      title={'Mangler tilgang'}
+      message={'Du har ikke tilgang til denne siden!'}
     />
   );
 }
@@ -40,8 +40,8 @@ export function NoAccess() {
 export function NotFound() {
   return (
     <ErrorPage
-      title={"Siden finnes ikke"}
-      message={"Du har forsøkt å gå inn på en side som ikke eksisterer!"}
+      title={'Siden finnes ikke'}
+      message={'Du har forsøkt å gå inn på en side som ikke eksisterer!'}
     />
   );
 }
