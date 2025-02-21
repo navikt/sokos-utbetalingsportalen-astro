@@ -9,46 +9,46 @@ const userData = Astro.locals.userInfo;
 const groupName = '...';
 
 function adGroup({
-                     adGroupDevelopment,
-                     adGroupProduction,
-                 }: {
-    adGroupDevelopment: string;
-    adGroupProduction: string;
+  adGroupDevelopment,
+  adGroupProduction,
+}: {
+  adGroupDevelopment: string;
+  adGroupProduction: string;
 }) {
-    return getServerSideEnvironment() === 'prod'
-        ? adGroupProduction
-        : adGroupDevelopment;
+  return getServerSideEnvironment() === 'prod'
+    ? adGroupProduction
+    : adGroupDevelopment;
 }
 
 const x = {
-    app: 'ATTESTASJON',
-    title: 'Attestasjon',
-    description: 'Attestering av oppdrag',
-    group: adGroup({
-        adGroupDevelopment: '0de8d01f-8ad0-4391-841c-55392956bc17',
-        adGroupProduction: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
-    }),
-    url: mikrofrontendUrlServer('sokos-up-attestasjon'),
+  app: 'ATTESTASJON',
+  title: 'Attestasjon',
+  description: 'Attestering av oppdrag',
+  group: adGroup({
+    adGroupDevelopment: '0de8d01f-8ad0-4391-841c-55392956bc17',
+    adGroupProduction: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
+  }),
+  url: mikrofrontendUrlServer('sokos-up-attestasjon'),
 };
 
 function checkGroup(uuid: string) {
-    return userData.adGroups.includes(uuid);
+  return userData.adGroups.includes(uuid);
 }
 
 const hasAccess = checkGroup(x.group);
 ---
 
 <Layout>
+  <div>
     <div>
-        <div>
-            <Heading size={'large'}>Attestasjon route</Heading>
-        </div>
+      <Heading size={'large'}>Attestasjon route</Heading>
     </div>
-    {
-        hasAccess ? (
-                <Microfrontend url={x.url} userData={userData} client:only="react" />
-        ) : (
-                <div>No access</div>
-        )
-    }
+  </div>
+  {
+    hasAccess ? (
+      <Microfrontend url={x.url} userData={userData} client:only="react" />
+    ) : (
+      <div>No access</div>
+    )
+  }
 </Layout>
