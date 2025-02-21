@@ -6,14 +6,16 @@ import styles from './header.module.css';
 
 const userData = Astro.locals.userInfo;
 ---
+
 <div class={styles.header}>
   <InternalHeader>
-      <Image src={navIkon}
-             alt="NAV-logo"
-             width={60}
-             height={40}
-             class={styles.navLogo}
-      />
+    <Image
+      src={navIkon}
+      alt="NAV-logo"
+      width={60}
+      height={40}
+      class={styles.navLogo}
+    />
     <InternalHeader.Title href="/">Utbetalingsportalen</InternalHeader.Title>
     <Spacer />
     <InternalHeader.User name={userData.name} />
