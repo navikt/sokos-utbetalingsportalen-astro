@@ -1,9 +1,28 @@
 ---
 import styles from './_index.module.css';
-import { Heading, GuidePanel, BodyLong, Switch } from '@navikt/ds-react';
+import {
+  Heading,
+  GuidePanel,
+  BodyLong,
+  Switch,
+  Tooltip,
+} from '@navikt/ds-react';
 import Layout from '../layouts/Layout.astro';
+import Appcard from '../components/appcard/appcard.astro';
+import { pagesConfig } from '../config/pageconfig';
+import { getServerSideEnvironment } from '../utils/server/environment';
 
 const userInfo = Astro.locals.userInfo;
+
+function adGroup({ adGroupDevelopment, adGroupProduction }) {
+  return getServerSideEnvironment() === 'prod'
+    ? adGroupProduction
+    : adGroupDevelopment;
+}
+
+function checkGroup(uuid: string) {
+  return userInfo.adGroups.includes(uuid);
+}
 ---
 
 <Layout>
@@ -26,7 +45,35 @@ const userInfo = Astro.locals.userInfo;
           </BodyLong>
         </GuidePanel>
       </div>
-      <Heading level="3" size="medium" spacing> Apper </Heading>
+      <Heading level="3" size="medium" spacing> Apper</Heading>
+      <Switch>Vis alle apper</Switch>
+      {
+        pagesConfig.map((page) => {
+          const group = adGroup(page);
+          const hasAccess = checkGroup(group);
+          return hasAccess ? (
+            <div class={styles['home-apps']}>
+              <Appcard
+                key={page.app}
+                title={page.title}
+                description={page.description}
+                url={page.url}
+              />
+            </div>
+          ) : (
+            <span class={`${styles['appcard']} ${styles['disabled']}`}>
+              <Tooltip content="Du har ikke tilgang til denne appen">
+                <Appcard
+                  key={page.app}
+                  title={page.title}
+                  description={page.description}
+                  url={page.url}
+                />
+              </Tooltip>
+            </span>
+          );
+        })
+      }
     </div>
   </main>
 </Layout>

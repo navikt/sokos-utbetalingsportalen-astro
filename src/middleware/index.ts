@@ -12,7 +12,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
     context.locals.userInfo = {
       navIdent: 'Z123456',
       name: 'Ola Mohammed',
-      adGroups: ['0de8d01f-8ad0-4391-841c-55392956bc17'],
+      adGroups: ['0de8d01f-8ad0-4391-841c-55392956bc17', 'e0023d91-26bc-4d5d-95ba-3148b6123afc'],
     };
     return next();
   }

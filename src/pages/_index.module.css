@@ -15,7 +15,7 @@
 .home-apps {
     display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: 0.75rem;
+    padding-bottom: 1rem;
 }
 
 @media (width >= 880px) {
