@@ -14,9 +14,7 @@ function createMicrofrontendBundle(url: string) {
 }
 
 export default function Microfrontend(props: MicrofrontendType) {
-  const MicrofrontendBundle = createMicrofrontendBundle(
-    props.url,
-  );
+  const MicrofrontendBundle = createMicrofrontendBundle(props.url);
 
   return (
     <React.Suspense fallback={<ContentLoader />}>

@@ -48,4 +48,4 @@ spec:
   env:
 
     - name: APP_INGRESS
-      value: https://sokos-utbetalingsportalen.intern.dev.nav.no
+      value: sokos-utbetalingsportalen.intern.dev.nav.no
