@@ -9,6 +9,11 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const params = encodeURIComponent(context.url.search);
 
   if (isLocal) {
+    context.locals.userInfo = {
+      navIdent: "Z123456",
+      name: "Ola Mohammed",
+      adGroups: ["0de8d01f-8ad0-4391-841c-55392956bc17"],
+    };
     return next();
   }
 
@@ -38,7 +43,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   context.locals.userInfo = {
     navIdent: validation.payload.NAVident as string,
     name: validation.payload.name as string,
-    adGroups: validation.payload.groups as [],
+    adGroups: validation.payload.groups as string[],
   };
 
   return next();

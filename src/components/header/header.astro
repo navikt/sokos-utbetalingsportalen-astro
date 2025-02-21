@@ -1,9 +1,12 @@
 ---
 import { InternalHeader, Spacer } from '@navikt/ds-react';
+
+const userData = Astro.locals.userInfo;
+
 ---
 
 <InternalHeader>
   <InternalHeader.Title href="/">Astro Template</InternalHeader.Title>
   <Spacer />
-  <InternalHeader.User name="John Doe" />
+  <InternalHeader.User name={userData.name} />
 </InternalHeader>

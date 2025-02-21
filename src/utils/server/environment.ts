@@ -7,7 +7,7 @@ export const getServerSideEnvironment = () => {
   }
 
   if (isLocal) {
-    return 'dev';
+    return 'local';
   }
 
   return 'prod';

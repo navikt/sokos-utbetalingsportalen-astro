@@ -44,3 +44,8 @@ spec:
     requests:
       cpu: '20m'
       memory: 128Mi
+
+  env:
+
+    - name: APP_INGRESS
+      value: https://sokos-utbetalingsportalen.intern.dev.nav.no
