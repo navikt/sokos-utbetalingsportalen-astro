@@ -2,7 +2,7 @@ import React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import ErrorMessage from '../error/ErrorMessage.tsx';
 import ContentLoader from '../loader/ContentLoader.tsx';
-import type {UserData} from "../../types/UserData.ts";
+import type { UserData } from '../../types/UserData.ts';
 
 type MicrofrontendType = {
   url: string;

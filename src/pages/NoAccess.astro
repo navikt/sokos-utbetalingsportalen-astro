@@ -1,19 +1,12 @@
 ---
-import {ChatExclamationmarkIcon} from "@navikt/aksel-icons";
-import {BodyShort, Heading, Link} from "@navikt/ds-react";
+import { ChatExclamationmarkIcon } from '@navikt/aksel-icons';
+import { BodyShort, Heading, Link } from '@navikt/ds-react';
 import styles from './_ErrorPage.module.css';
-
 ---
+
 <div class={styles['error-page']}>
-    <ChatExclamationmarkIcon
-            title="Chat exclamationmark ikon"
-            fontSize="6rem"
-    />
-    <Heading level="1" size={'medium'}>
-        Mangler tilgang
-    </Heading>
-    <BodyShort>Du har ikke tilgang til denne siden!</BodyShort>
-    <Link href="/" variant="action">
-        Tilbake til startsiden
-    </Link>
+  <ChatExclamationmarkIcon title="Chat exclamationmark ikon" fontSize="6rem" />
+  <Heading level="1" size={'medium'}> Mangler tilgang </Heading>
+  <BodyShort>Du har ikke tilgang til denne siden!</BodyShort>
+  <Link href="/" variant="action"> Tilbake til startsiden </Link>
 </div>

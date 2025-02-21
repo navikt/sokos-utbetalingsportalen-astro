@@ -10,9 +10,9 @@ export const onRequest = defineMiddleware(async (context, next) => {
 
   if (isLocal) {
     context.locals.userInfo = {
-      navIdent: "Z123456",
-      name: "Ola Mohammed",
-      adGroups: ["0de8d01f-8ad0-4391-841c-55392956bc17"],
+      navIdent: 'Z123456',
+      name: 'Ola Mohammed',
+      adGroups: ['0de8d01f-8ad0-4391-841c-55392956bc17'],
     };
     return next();
   }

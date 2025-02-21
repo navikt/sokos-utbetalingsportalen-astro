@@ -1,15 +1,15 @@
-import {getClientSideEnvironment} from "./environment.ts";
+import { getClientSideEnvironment } from './environment.ts';
 
 function adGroup({
-                   adGroupDevelopment,
-                   adGroupProduction,
-                 }: {
+  adGroupDevelopment,
+  adGroupProduction,
+}: {
   adGroupDevelopment: string;
   adGroupProduction: string;
 }) {
   return getClientSideEnvironment() === 'production'
-      ? adGroupProduction
-      : adGroupDevelopment;
+    ? adGroupProduction
+    : adGroupDevelopment;
 }
 
 /**
