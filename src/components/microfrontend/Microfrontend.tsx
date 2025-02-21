@@ -15,7 +15,7 @@ function createMicrofrontendBundle(url: string) {
 
 export default function Microfrontend(props: MicrofrontendType) {
   const MicrofrontendBundle = createMicrofrontendBundle(
-    'http://localhost:3000/attestasjon/bundle.js',
+    props.url,
   );
 
   return (
