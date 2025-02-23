@@ -31,6 +31,6 @@ export default defineConfig({
     mode: "standalone",
   }),
   vite: {
-    publicDir: "public",
+    publicDir: "./public",
   }
 });
