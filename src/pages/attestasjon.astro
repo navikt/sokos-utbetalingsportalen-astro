@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Heading } from '@navikt/ds-react';
+import { Heading, Alert } from '@navikt/ds-react';
 import Microfrontend from '../components/microfrontend/Microfrontend';
 import { getServerSideEnvironment } from '../utils/server/environment';
 import { mikrofrontendUrlServer } from '../utils/server/microfrontend';
@@ -40,15 +40,12 @@ const hasAccess = checkGroup(x.group);
 
 <Layout>
   <div>
-    <div>
-      <Heading size={'large'}>Attestasjon route</Heading>
-    </div>
+    {
+      hasAccess ? (
+        <Microfrontend url={x.url} userData={userData} client:only="react" />
+      ) : (
+        <Alert variant="warning">Du har ikke tilgang til denne applikasjonen</Alert>
+      )
+    }
   </div>
-  {
-    hasAccess ? (
-      <Microfrontend url={x.url} userData={userData} client:only="react" />
-    ) : (
-      <div>No access</div>
-    )
-  }
 </Layout>
