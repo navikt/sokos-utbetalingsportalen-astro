@@ -2,20 +2,39 @@
 import { Heading } from '@navikt/ds-react';
 import styles from './appcard.module.css';
 import { ChevronRightIcon } from '@navikt/aksel-icons';
+import { Tooltip } from '@navikt/ds-react';
 
-const { title, description, url } = Astro.props;
+const { title, description, url, hasAccess } = Astro.props;
 ---
 
-<a href={url}>
-  <div class={styles['appcard']}>
-    <div class={styles['appcard_title']}>
-      <Heading level="3" size="xsmall">
-        {title}
-      </Heading>
-      <div class={styles['appcard-arrow']}>
-        <ChevronRightIcon title="Chevron ikon" />
+{
+  hasAccess ? (
+    <a href={url}>
+      <div class={styles['appcard']}>
+        <div class={styles['appcard_title']}>
+          <Heading level="3" size="xsmall">
+            {title}
+          </Heading>
+          <div class={styles['appcard-arrow']}>
+            <ChevronRightIcon title="Chevron ikon" />
+          </div>
+        </div>
+        <div class={styles['appcard-description']}>{description}</div>
       </div>
+    </a>
+  ) : (
+    <div class={`${styles['appcard']} ${styles['disabled']}`}>
+      <Tooltip content="Du har ikke tilgang til denne appen">
+        <div class={styles['appcard_title']}>
+          <Heading level="3" size="xsmall">
+            {title}
+          </Heading>
+          <div class={styles['appcard-arrow']}>
+            <ChevronRightIcon title="Chevron ikon" />
+          </div>
+        </div>
+        <div class={styles['appcard-description']}>{description}</div>
+      </Tooltip>
     </div>
-    <div class={styles['appcard-description']}>{description}</div>
-  </div>
-</a>
+  )
+}

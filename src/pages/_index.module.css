@@ -1,5 +1,5 @@
 .home {
-    margin: auto;
+    margin: auto 2rem;
     min-width: 380px;
     max-width: 1600px;
 }
@@ -15,7 +15,7 @@
 .home-apps {
     display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
-    padding-bottom: 1rem;
+    gap: 1rem;
 }
 
 @media (width >= 880px) {

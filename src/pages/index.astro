@@ -1,12 +1,6 @@
 ---
 import styles from './_index.module.css';
-import {
-  Heading,
-  GuidePanel,
-  BodyLong,
-  Switch,
-  Tooltip,
-} from '@navikt/ds-react';
+import { Heading, GuidePanel, BodyLong, Switch } from '@navikt/ds-react';
 import Layout from '../layouts/Layout.astro';
 import Appcard from '../components/appcard/appcard.astro';
 import { pagesConfig } from '../config/pageconfig';
@@ -47,33 +41,23 @@ function checkGroup(uuid: string) {
       </div>
       <Heading level="3" size="medium" spacing> Apper</Heading>
       <Switch>Vis alle apper</Switch>
-      {
-        pagesConfig.map((page) => {
-          const group = adGroup(page);
-          const hasAccess = checkGroup(group);
-          return hasAccess ? (
-            <div class={styles['home-apps']}>
+      <div class={styles['home-apps']}>
+        {
+          pagesConfig.map((page) => {
+            const group = adGroup(page);
+            const hasAccess = checkGroup(group);
+            return (
               <Appcard
                 key={page.app}
                 title={page.title}
                 description={page.description}
                 url={page.url}
+                hasAccess={hasAccess}
               />
-            </div>
-          ) : (
-            <span class={`${styles['appcard']} ${styles['disabled']}`}>
-              <Tooltip content="Du har ikke tilgang til denne appen">
-                <Appcard
-                  key={page.app}
-                  title={page.title}
-                  description={page.description}
-                  url={page.url}
-                />
-              </Tooltip>
-            </span>
-          );
-        })
-      }
+            );
+          })
+        }
+      </div>
     </div>
   </main>
 </Layout>
