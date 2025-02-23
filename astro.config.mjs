@@ -6,9 +6,9 @@ import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
-  build: {
+  /*build: {
     assetsPrefix: "https://cdn.nav.no/min-side/sokos-utbetalingsportalen-astro", // Change this to your CDN prefix
-  },
+  },*/
   integrations: [
     react(),
     {

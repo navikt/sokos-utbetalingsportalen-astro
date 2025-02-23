@@ -44,7 +44,9 @@ const hasAccess = checkGroup(x.group);
       hasAccess ? (
         <Microfrontend url={x.url} userData={userData} client:only="react" />
       ) : (
-        <Alert variant="warning">Du har ikke tilgang til denne applikasjonen</Alert>
+        <Alert variant="warning">
+          Du har ikke tilgang til denne applikasjonen
+        </Alert>
       )
     }
   </div>
