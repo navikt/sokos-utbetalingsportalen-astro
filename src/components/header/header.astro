@@ -1,7 +1,6 @@
 ---
 import { InternalHeader, Spacer } from '@navikt/ds-react';
 import navIkon from '../../images/nav-icon-hvit.png';
-import { Image } from 'astro:assets';
 import styles from './header.module.css';
 
 const userData = Astro.locals.userInfo;
@@ -9,13 +8,7 @@ const userData = Astro.locals.userInfo;
 
 <div class={styles.header}>
   <InternalHeader>
-    <Image
-      src={navIkon}
-      alt="NAV-logo"
-      width={60}
-      height={40}
-      class={styles.navLogo}
-    />
+    <img src={navIkon.src} alt="NAV logo" class={styles.navLogo} />
     <InternalHeader.Title href="/">Utbetalingsportalen</InternalHeader.Title>
     <Spacer />
     <InternalHeader.User name={userData.name} />
