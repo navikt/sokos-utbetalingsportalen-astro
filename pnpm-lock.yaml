@@ -70,8 +70,8 @@ importers:
         specifier: 18.2.21
         version: 18.2.21
       hono:
-        specifier: 4.4.2
-        version: 4.4.2
+        specifier: 4.7.2
+        version: 4.7.2
       husky:
         specifier: ^9.1.7
         version: 9.1.7
@@ -1458,9 +1458,9 @@ packages:
   hastscript@9.0.0:
     resolution: {integrity: sha512-jzaLBGavEDKHrc5EfFImKN7nZKKBdSLIdGvCwDZ9TfzbF2ffXiov8CKE445L2Z1Ek2t/m4SKQ2j6Ipv7NyUolw==}
 
-  hono@4.4.2:
-    resolution: {integrity: sha512-bRhZ+BM9r04lRN2i9wiZ18yQNbZxHsmmRIItoAb43nRkHnIDsFhFh4mJ0seEs06FvenibpAgSVNHQ8ZzcDQx2A==}
-    engines: {node: '>=16.0.0'}
+  hono@4.7.2:
+    resolution: {integrity: sha512-8V5XxoOF6SI12jkHkzX/6aLBMU5GEF5g387EjVSQipS0DlxWgWGSMeEayY3CRBjtTUQYwLHx9JYouWqKzy2Vng==}
+    engines: {node: '>=16.9.0'}
 
   html-dom-parser@3.1.7:
     resolution: {integrity: sha512-cDgNF4YgF6J3H+d9mcldGL19p0GzVdS3iGuDNzYWQpU47q3+IRM85X3Xo07E+nntF4ek4s78A9V24EwxlPTjig==}
@@ -4136,7 +4136,7 @@ snapshots:
       property-information: 6.5.0
       space-separated-tokens: 2.0.2
 
-  hono@4.4.2: {}
+  hono@4.7.2: {}
 
   html-dom-parser@3.1.7:
     dependencies:
