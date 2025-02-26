@@ -3,20 +3,18 @@ import { pagesConfig } from 'src/config/pageconfig';
 import { useState } from 'react';
 import AppCard from './AppCard';
 import styles from './AppSwitcher.module.css';
+import { checkAdGroups } from 'src/utils/checkAdGroups';
 
 type AppSwitcherProps = {
   adGroups: string[];
 };
 
 export default function AppSwitcher(props: AppSwitcherProps) {
-  function checkGroup(uuid: string) {
-    return props.adGroups.includes(uuid);
-  }
-
   const allApps = pagesConfig;
   const authorizedApps = allApps.filter(
     (app) =>
-      checkGroup(app.adGroupDevelopment) || checkGroup(app.adGroupProduction),
+      checkAdGroups(props.adGroups, app.adGroupDevelopment) ||
+      checkAdGroups(props.adGroups, app.adGroupProduction),
   );
 
   const [showApps, setShowApps] = useState<string>('');
