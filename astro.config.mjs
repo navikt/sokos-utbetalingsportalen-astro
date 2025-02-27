@@ -27,13 +27,6 @@ export default defineConfig({
     },
   ],
   output: "server",
-  server: {
-    headers: {
-      "Access-Control-Allow-Origin": "*, https://sokos-utbetalingsportalen-astro.intern.dev.nav.no",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-      "Access-Control-Allow-Headers": "Origin, Content-Type, Authorization, Accept",
-    }
-  },
   adapter: node({
     mode: "standalone",
   }),
