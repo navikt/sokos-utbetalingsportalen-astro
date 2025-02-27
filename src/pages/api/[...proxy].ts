@@ -1,7 +1,9 @@
-import type { APIRoute } from "astro";
+import type { APIRoute } from 'astro';
 
 const getProxyUrl = (request: Request) => {
-  const proxyUrl = new URL("https://sokos-oppdrag.dev-fss-pub.nais.io/api/v1/attestasjon");
+  const proxyUrl = new URL(
+    'https://sokos-oppdrag.dev-fss-pub.nais.io/api/v1/attestasjon',
+  );
   const requestUrl = new URL(request.url);
 
   return new URL(requestUrl.pathname, proxyUrl);
