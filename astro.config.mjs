@@ -27,6 +27,11 @@ export default defineConfig({
     },
   ],
   output: "server",
+  server: {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    }
+  },
   adapter: node({
     mode: "standalone",
   }),
