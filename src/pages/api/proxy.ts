@@ -7,5 +7,5 @@ export const GET: APIRoute = async function get(context) {
   const oboToken = getOboToken('');
   // TODO: get oboToken
   // TODO: get correct url
-  return context.rewrite('/attestasjon');
+  return context.rewrite('');
 };

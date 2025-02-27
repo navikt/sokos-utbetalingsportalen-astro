@@ -6,7 +6,7 @@ import { checkAdGroups } from '../../utils/checkAdGroups';
 type AppSwitcherHeaderProps = {
   adGroups: string[];
 };
-export default function DropdownBar(props: AppSwitcherHeaderProps) {
+export default function AppSwitcherHeader(props: AppSwitcherHeaderProps) {
   const authorizedApps = pagesConfig.filter(
     (app) =>
       checkAdGroups(props.adGroups, app.adGroupDevelopment) ||
