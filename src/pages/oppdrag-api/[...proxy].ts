@@ -37,6 +37,8 @@ export const ALL: APIRoute = async (context: APIContext) => {
       authorization: `Bearer ${token}`,
     },
     body: context.request.body,
+    // @ts-expect-error
+    duplex: "half"
   });
   console.log('response', response.headers);
   return new Response(response.body);
