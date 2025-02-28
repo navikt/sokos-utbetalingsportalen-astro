@@ -38,7 +38,7 @@ export const ALL: APIRoute = async (context: APIContext) => {
     },
     body: context.request.body,
     // @ts-expect-error
-    duplex: "half"
+    duplex: 'half',
   });
   console.log('response', response.headers);
   return new Response(response.body);
