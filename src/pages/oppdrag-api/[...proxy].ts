@@ -34,7 +34,8 @@ export const ALL: APIRoute = async (context: APIContext) => {
   const response = await fetch(proxyUrl.href, {
     method: context.request.method,
     headers: {
-      authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
     },
     body: context.request.body,
     // @ts-expect-error
