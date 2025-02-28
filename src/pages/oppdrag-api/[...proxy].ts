@@ -37,6 +37,7 @@ export const ALL: APIRoute = async (context: APIContext) => {
     },
     body: context.request.body,
   });
+  console.log('response', response.headers);
   return new Response(response.body);
 };
 
