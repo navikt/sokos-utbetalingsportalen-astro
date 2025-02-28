@@ -33,7 +33,7 @@ export const ALL: APIRoute = async (context: APIContext) => {
   const response = await fetch(proxyUrl.href, {
     method: context.request.method,
     headers: {
-      Authorization: `Bearer ${token}`,
+        authorization: `Bearer ${token}`
     },
     body: context.request.body,
   });
