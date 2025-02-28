@@ -5,6 +5,8 @@ export const pagesConfig = [
     description: 'Attestering av oppdrag',
     adGroupDevelopment: '0de8d01f-8ad0-4391-841c-55392956bc17',
     adGroupProduction: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
+    api: 'https://sokos-oppdrag.dev-fss-pub.nais.io',
+    audience: 'api://dev-fss.okonomi.sokos-oppdrag/.default',
     url: 'attestasjon',
   },
   {
