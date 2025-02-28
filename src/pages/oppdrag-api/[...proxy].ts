@@ -28,6 +28,7 @@ export const ALL: APIRoute = async (context: APIContext) => {
   const audience = 'api://dev-fss.okonomi.sokos-oppdrag/.default';
   const token = getOboToken(context.locals.token, audience); // audience fra config
   const proxyUrl = getProxyUrl(context.request);
+  console.log('token', token);
   console.info('Proxying request to', proxyUrl.href);
 
   const response = await fetch(proxyUrl.href, {
