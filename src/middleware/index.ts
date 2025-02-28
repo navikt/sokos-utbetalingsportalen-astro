@@ -43,6 +43,9 @@ export const onRequest = defineMiddleware(async (context, next) => {
 
   context.locals.token = token;
 
+  console.log('token', token);
+  console.log('validation', validation);
+
   context.locals.userInfo = {
     navIdent: validation.payload.NAVident as string,
     name: validation.payload.name as string,
