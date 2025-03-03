@@ -2,46 +2,49 @@ import type { APIContext, APIRoute } from 'astro';
 import { getOboToken } from 'src/utils/server/token';
 
 type ProxyUrl = {
-    apiProxy: string;
-    apiUrl: string;
+  apiProxy: string;
+  apiUrl: string;
 };
 
 type ProxyAudience = {
-    cluster: string;
-    namespace: string;
-    application: string;
+  cluster: string;
+  namespace: string;
+  application: string;
 };
 
 function getProxyUrl(request: Request, proxyUrl: ProxyUrl): URL {
-    const url = request.url.replace(
-        `https://sokos-utbetalingsportalen-astro.intern.dev.nav.no${proxyUrl.apiProxy}`,
-        proxyUrl.apiUrl
-    );
-    return new URL(url);
-};
-
-function getProxyAudience(audience: ProxyAudience): string {
-    return `api://${audience.cluster}/${audience.namespace}/${audience.application}/.default`;
+  const url = request.url.replace(
+    `https://sokos-utbetalingsportalen-astro.intern.dev.nav.no${proxyUrl.apiProxy}`,
+    proxyUrl.apiUrl,
+  );
+  return new URL(url);
 }
 
-export const routeProxyWithOboToken = (proxyUrl: ProxyUrl, audienceConfig: ProxyAudience): APIRoute => {
-    return async (context: APIContext) => {
-        const audience = getProxyAudience(audienceConfig);
-        const token = await getOboToken(context.locals.token, audience);
-        const url = getProxyUrl(context.request, proxyUrl);
+function getProxyAudience(audience: ProxyAudience): string {
+  return `api://${audience.cluster}/${audience.namespace}/${audience.application}/.default`;
+}
 
-        const response = await fetch(url.href, {
-            method: context.request.method,
-            headers: {
-                Authorization: `Bearer ${token}`,
-                'Content-Type': 'application/json',
-            },
-            body: context.request.body,
-            // @ts-expect-error
-            duplex: 'half',
-        });
+export const routeProxyWithOboToken = (
+  proxyUrl: ProxyUrl,
+  audienceConfig: ProxyAudience,
+): APIRoute => {
+  return async (context: APIContext) => {
+    const audience = getProxyAudience(audienceConfig);
+    const token = await getOboToken(context.locals.token, audience);
+    const url = getProxyUrl(context.request, proxyUrl);
 
-        console.log('response', response.headers);
-        return new Response(response.body);
-    };
+    const response = await fetch(url.href, {
+      method: context.request.method,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: context.request.body,
+      // @ts-expect-error
+      duplex: 'half',
+    });
+
+    console.log('response', response.headers);
+    return new Response(response.body);
+  };
 };

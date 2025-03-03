@@ -10,5 +10,5 @@ export const ALL: APIRoute = routeProxyWithOboToken(
     cluster: 'dev-fss',
     namespace: 'okonomi',
     application: 'sokos-oppdrag',
-  }
+  },
 );
