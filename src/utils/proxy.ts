@@ -21,7 +21,7 @@ function getProxyUrl(request: Request, proxyUrl: ProxyUrl): URL {
 }
 
 function getProxyAudience(audience: ProxyAudience): string {
-  return `api://${audience.cluster}/${audience.namespace}/${audience.application}/.default`;
+  return `api://${audience.cluster}.${audience.namespace}.${audience.application}/.default`;
 }
 
 export const routeProxyWithOboToken = (
