@@ -1,7 +1,7 @@
 import { MenuGridIcon } from '@navikt/aksel-icons';
 import { Dropdown, InternalHeader } from '@navikt/ds-react';
 import { pagesConfig } from '../../config/pageconfig.ts';
-import { checkAdGroups } from '../../utils/checkAdGroups';
+import { hasAccessToAdGroup } from 'src/utils/common.ts';
 
 type AppSwitcherHeaderProps = {
   adGroups: string[];
@@ -9,8 +9,8 @@ type AppSwitcherHeaderProps = {
 export default function AppSwitcherHeader(props: AppSwitcherHeaderProps) {
   const authorizedApps = pagesConfig.filter(
     (app) =>
-      checkAdGroups(props.adGroups, app.adGroupDevelopment) ||
-      checkAdGroups(props.adGroups, app.adGroupProduction),
+      hasAccessToAdGroup(props.adGroups, app.adGroupDevelopment) ||
+      hasAccessToAdGroup(props.adGroups, app.adGroupProduction),
   );
 
   function getMicrofrontendLinks() {

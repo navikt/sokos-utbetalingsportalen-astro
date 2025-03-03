@@ -3,7 +3,7 @@ import { pagesConfig } from 'src/config/pageconfig';
 import { useState } from 'react';
 import AppCard from './AppCard';
 import styles from './AppSwitcher.module.css';
-import { checkAdGroups } from 'src/utils/checkAdGroups';
+import { hasAccessToAdGroup } from 'src/utils/common';
 
 type AppSwitcherProps = {
   adGroups: string[];
@@ -13,8 +13,8 @@ export default function AppSwitcher(props: AppSwitcherProps) {
   const allApps = pagesConfig;
   const authorizedApps = allApps.filter(
     (app) =>
-      checkAdGroups(props.adGroups, app.adGroupDevelopment) ||
-      checkAdGroups(props.adGroups, app.adGroupProduction),
+      hasAccessToAdGroup(props.adGroups, app.adGroupDevelopment) ||
+      hasAccessToAdGroup(props.adGroups, app.adGroupProduction),
   );
 
   const [showApps, setShowApps] = useState<string>('');
