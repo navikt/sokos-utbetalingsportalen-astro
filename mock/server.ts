@@ -17,7 +17,7 @@ api.get('/api/sokos-utbetalingsportalen-astro', (c) => {
   return c.json(example);
 });
 
-api.get('/attestasjon/bundle.js', (c) => {
+api.get('/bundle.js', (c) => {
   return new Response(microfrontend, {
     headers: {
       "Content-Type": "application/javascript",

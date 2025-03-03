@@ -1,11 +1,6 @@
 import type { APIContext, APIRoute } from 'astro';
 import { getOboToken } from 'src/utils/server/token';
 
-// Hente url
-// Hente oboToken
-// Rewrite url til ny backend (fra config)
-// Returnere svar fra et api
-
 const getProxyUrl = (request: Request) => {
   const requestUrl = request.url;
 
@@ -13,7 +8,6 @@ const getProxyUrl = (request: Request) => {
     'https://sokos-utbetalingsportalen-astro.intern.dev.nav.no/oppdrag-api',
     'https://sokos-oppdrag.dev-fss-pub.nais.io',
   );
-  console.log('url', url);
 
   return new URL(url);
 };

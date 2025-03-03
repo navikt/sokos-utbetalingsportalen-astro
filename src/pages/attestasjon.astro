@@ -15,7 +15,7 @@ function adGroup({
   adGroupDevelopment: string;
   adGroupProduction: string;
 }) {
-  return getServerSideEnvironment() === 'prod'
+  return getServerSideEnvironment() === 'production'
     ? adGroupProduction
     : adGroupDevelopment;
 }
