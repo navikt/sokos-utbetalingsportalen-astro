@@ -9,7 +9,13 @@ export function fetchMicrofrontendBundleUrl(appName: string) {
   if (getServerSideEnvironment() === 'local') {
     return '/bundle.js';
   }
-  return 'https://' + process.env.APP_INGRESS + '/' + appName + '/bundle.js';
+  return (
+    'https://' +
+    process.env.UTBETALINGSPORTALEN_URL +
+    '/' +
+    appName +
+    '/bundle.js'
+  );
 }
 
 export function fetchMicrofrontendAdGroup({
