@@ -4,7 +4,7 @@ import { getMicrofrontendConfig } from 'src/microfrontend';
 import { hasAccessToAdGroup } from 'src/utils/common';
 import {
   fetchMicrofrontendAdGroup,
-  fetchMicrofrontendBundle,
+  fetchMicrofrontendBundleUrl,
 } from 'src/utils/server/common';
 import Microfrontend from '../components/microfrontend/Microfrontend';
 import Layout from '../layouts/Layout.astro';
@@ -19,6 +19,8 @@ const hasAccess = hasAccessToAdGroup(
     adGroupProduction: oppdragsinfo.adGroupProduction,
   }),
 );
+
+const bundleUrl = fetchMicrofrontendBundleUrl(oppdragsinfo.naisAppName);
 ---
 
 <Layout>
@@ -26,7 +28,7 @@ const hasAccess = hasAccessToAdGroup(
     {
       hasAccess ? (
         <Microfrontend
-          url={fetchMicrofrontendBundle(oppdragsinfo.naisAppName)}
+          url={bundleUrl}
           userData={Astro.locals.userInfo}
           client:only="react"
         />

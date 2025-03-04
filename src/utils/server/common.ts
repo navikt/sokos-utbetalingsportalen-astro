@@ -5,7 +5,7 @@ type AdGroup = {
   adGroupProduction: string;
 };
 
-export function fetchMicrofrontendBundle(appName: string) {
+export function fetchMicrofrontendBundleUrl(appName: string) {
   if (getServerSideEnvironment() === 'local') {
     return '/bundle.js';
   }
