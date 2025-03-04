@@ -14,7 +14,7 @@ type ProxyAudience = {
 
 function getProxyUrl(request: Request, proxyUrl: ProxyUrl): URL {
   const url = request.url.replace(
-    `${process.env.UTBETALINGSPORTALEN_URL}${proxyUrl.apiProxy}`,
+    `https://${process.env.UTBETALINGSPORTALEN_URL}${proxyUrl.apiProxy}`,
     proxyUrl.apiUrl,
   );
   return new URL(url);
