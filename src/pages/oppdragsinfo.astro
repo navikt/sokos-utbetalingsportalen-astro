@@ -8,14 +8,15 @@ import {
 } from 'src/utils/server/common';
 import Microfrontend from '../components/microfrontend/Microfrontend';
 import Layout from '../layouts/Layout.astro';
+import NoAccess from './NoAccess.astro';
 
-const attestasjon = getMicrofrontendConfig('attestasjon');
+const oppdragsinfo = getMicrofrontendConfig('oppdragsinfo');
 
 const hasAccess = hasAccessToAdGroup(
   Astro.locals.userInfo.adGroups,
   fetchMicrofrontendAdGroup({
-    adGroupDevelopment: attestasjon.adGroupDevelopment,
-    adGroupProduction: attestasjon.adGroupProduction,
+    adGroupDevelopment: oppdragsinfo.adGroupDevelopment,
+    adGroupProduction: oppdragsinfo.adGroupProduction,
   }),
 );
 ---
@@ -25,14 +26,12 @@ const hasAccess = hasAccessToAdGroup(
     {
       hasAccess ? (
         <Microfrontend
-          url={fetchMicrofrontendBundle(attestasjon.naisAppName)}
+          url={fetchMicrofrontendBundle(oppdragsinfo.naisAppName)}
           userData={Astro.locals.userInfo}
           client:only="react"
         />
       ) : (
-        <Alert variant="warning">
-          Du har ikke tilgang til denne applikasjonen
-        </Alert>
+        <NoAccess />
       )
     }
   </div>

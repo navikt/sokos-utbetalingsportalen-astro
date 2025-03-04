@@ -14,7 +14,7 @@ type ProxyAudience = {
 
 function getProxyUrl(request: Request, proxyUrl: ProxyUrl): URL {
   const url = request.url.replace(
-    `https://sokos-utbetalingsportalen-astro.intern.dev.nav.no${proxyUrl.apiProxy}`,
+    `${process.env.UTBETALINGSPORTALEN_URL}${proxyUrl.apiProxy}`,
     proxyUrl.apiUrl,
   );
   return new URL(url);
@@ -44,7 +44,6 @@ export const routeProxyWithOboToken = (
       duplex: 'half',
     });
 
-    console.log('response', response.headers);
     return new Response(response.body);
   };
 };

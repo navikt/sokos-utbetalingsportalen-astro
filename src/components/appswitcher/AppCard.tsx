@@ -7,12 +7,12 @@ type AppCardProps = {
   hasAccess: boolean;
   title: string;
   description: string;
-  url: string;
+  route: string;
 };
 
 export default function AppCard(props: AppCardProps) {
   return props.hasAccess ? (
-    <a href={props.url} className={styles['appcard']}>
+    <a href={props.route} className={styles['appcard']}>
       <div className={styles['appcard_title']}>
         <Heading level="3" size="xsmall">
           {props.title}

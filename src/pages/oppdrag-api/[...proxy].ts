@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { routeProxyWithOboToken } from 'src/utils/proxy';
+import { routeProxyWithOboToken } from 'src/utils/server/proxy';
 
 export const ALL: APIRoute = routeProxyWithOboToken(
   {

@@ -1,16 +1,15 @@
 import { Heading, Switch } from '@navikt/ds-react';
-import { pagesConfig } from 'src/config/pageconfig';
 import { useState } from 'react';
+import { microfrontendConfigArray as allApps } from 'src/microfrontend';
+import { hasAccessToAdGroup } from 'src/utils/common';
 import AppCard from './AppCard';
 import styles from './AppSwitcher.module.css';
-import { hasAccessToAdGroup } from 'src/utils/common';
 
 type AppSwitcherProps = {
   adGroups: string[];
 };
 
 export default function AppSwitcher(props: AppSwitcherProps) {
-  const allApps = pagesConfig;
   const authorizedApps = allApps.filter(
     (app) =>
       hasAccessToAdGroup(props.adGroups, app.adGroupDevelopment) ||
@@ -24,7 +23,7 @@ export default function AppSwitcher(props: AppSwitcherProps) {
       <AppCard
         key={app.app}
         hasAccess={authorizedApps.includes(app)}
-        url={app.url}
+        route={app.route}
         title={app.title}
         description={app.description}
       />

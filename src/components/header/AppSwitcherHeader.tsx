@@ -1,24 +1,24 @@
 import { MenuGridIcon } from '@navikt/aksel-icons';
 import { Dropdown, InternalHeader } from '@navikt/ds-react';
-import { pagesConfig } from '../../config/pageconfig.ts';
 import { hasAccessToAdGroup } from 'src/utils/common.ts';
+import { microfrontendConfigArray as allApps } from '../../microfrontend.ts';
 
 type AppSwitcherHeaderProps = {
   adGroups: string[];
 };
 export default function AppSwitcherHeader(props: AppSwitcherHeaderProps) {
-  const authorizedApps = pagesConfig.filter(
+  const authorizedApps = allApps.filter(
     (app) =>
       hasAccessToAdGroup(props.adGroups, app.adGroupDevelopment) ||
       hasAccessToAdGroup(props.adGroups, app.adGroupProduction),
   );
 
-  function getMicrofrontendLinks() {
+  function appSwitcherList() {
     return authorizedApps.map((page) => (
       <Dropdown.Menu.GroupedList.Item
         as="a"
         target="_blank"
-        href={page.url}
+        href={page.route}
         key={page.title + 'dropdown'}
       >
         <div aria-hidden>{page.title}</div>
@@ -36,7 +36,7 @@ export default function AppSwitcherHeader(props: AppSwitcherHeaderProps) {
           <Dropdown.Menu.GroupedList.Heading>
             Arbeidsflater (Åpner&nbsp;i&nbsp;ny&nbsp;fane)
           </Dropdown.Menu.GroupedList.Heading>
-          {getMicrofrontendLinks()}
+          {appSwitcherList()}
         </Dropdown.Menu.GroupedList>
       </Dropdown.Menu>
     </Dropdown>
