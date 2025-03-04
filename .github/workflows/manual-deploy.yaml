@@ -1,8 +1,7 @@
-name: 'Deploy main'
+name: Deploy application manual
+
 on:
-  push:
-    branches:
-      - 'main'
+  workflow_dispatch:
 
 permissions:
   contents: 'read'
@@ -47,6 +46,7 @@ jobs:
         id: docker-build-push
         with:
           team: okonomi
+          tag: snapshot
 
     outputs:
       image: ${{ steps.docker-build-push.outputs.image }}
