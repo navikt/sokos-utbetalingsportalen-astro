@@ -1,0 +1,8 @@
+---
+import SideBar from "./SideBar";
+
+const userInfo = Astro.locals.userInfo;
+
+---
+
+<div class="sidebar"><SideBar adGroups={userInfo.adGroups} client:only="react" /></div>
