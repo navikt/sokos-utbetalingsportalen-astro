@@ -12,7 +12,11 @@ const userInfo = Astro.locals.userInfo;
     <img src={navLogo.src} alt="NAV logo" class={styles.navLogo} />
     <InternalHeader.Title href="/">Utbetalingsportalen</InternalHeader.Title>
     <Spacer />
-    <AppSwitcherHeader server:defer adGroups={userInfo.adGroups} client:only="react">
+    <AppSwitcherHeader
+      server:defer
+      adGroups={userInfo.adGroups}
+      client:only="react"
+    >
       <AppSwitcherHeaderSkeleton slot="fallback" />
     </AppSwitcherHeader>
     <InternalHeader.User name={userInfo.name} description={userInfo.navIdent} />

@@ -1,9 +1,9 @@
-import { InternalHeader, Loader } from "@navikt/ds-react";
+import { InternalHeader, Loader } from '@navikt/ds-react';
 
-export default function AppSwitcherHeaderSkeleton () {
-    return (
-        <InternalHeader.Button>
-            <Loader variant="inverted" />
-        </InternalHeader.Button>
-    )
+export default function AppSwitcherHeaderSkeleton() {
+  return (
+    <InternalHeader.Button>
+      <Loader variant="inverted" />
+    </InternalHeader.Button>
+  );
 }
