@@ -17,7 +17,7 @@ export const microfrontendConfigArray: MicroFrontend[] = [
     description: 'Attestering av oppdrag',
     adGroupDevelopment: '0de8d01f-8ad0-4391-841c-55392956bc17',
     adGroupProduction: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
-    route: 'attestasjon',
+    route: '/attestasjon',
     naisAppName: 'sokos-up-attestasjon',
   },
   {
@@ -26,7 +26,7 @@ export const microfrontendConfigArray: MicroFrontend[] = [
     description: 'Søk etter oppdrag i Oppdragssystemet',
     adGroupDevelopment: 'e0023d91-26bc-4d5d-95ba-3148b6123afc',
     adGroupProduction: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
-    route: 'oppdragsinfo',
+    route: '/oppdragsinfo',
     naisAppName: 'sokos-up-oppdragsinfo',
   },
   {
@@ -35,7 +35,7 @@ export const microfrontendConfigArray: MicroFrontend[] = [
     description: 'Template for new apps',
     adGroupDevelopment: 'e0023d91-26bc-4d5d-95ba-3148b6123afa',
     adGroupProduction: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
-    route: 'template',
+    route: '/template',
     naisAppName: 'sokos-up-template',
   },
 ];

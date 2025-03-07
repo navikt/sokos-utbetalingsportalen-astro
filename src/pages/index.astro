@@ -9,34 +9,31 @@ const userInfo = Astro.locals.userInfo;
 ---
 
 <Layout>
-  <main id="main-content" role="main">
-    <div class={styles['home']}>
-      <div class={styles['home-guidepanel']}>
-        <div class={styles['home-heading']}>
-          <Heading level="1" size="large" spacing>
-            God dag, {userInfo.name}
-          </Heading>
-        </div>
-        <GuidePanel poster>
-          <Heading level="2" size="small" spacing>
-            Informasjon om utbetalingsportalen
-          </Heading>
-          <BodyLong spacing>
-            Utbetalingsportalen er en ny platform som på sikt skal overta
-            funksjoner fra Økonomiportalen og Abetal i en ny og forbedret
-            versjon.
-          </BodyLong>
-        </GuidePanel>
+  <div class={styles['home']}>
+    <div class={styles['home-guidepanel']}>
+      <div class={styles['home-heading']}>
+        <Heading level="1" size="large" spacing>
+          God dag, {userInfo.name}
+        </Heading>
       </div>
-      <div>
-        <AppSwitcher
-          server:defer
-          adGroups={userInfo.adGroups}
-          client:only="react"
-        >
-          <AppSwitcherSkeleton slot="fallback" />
-        </AppSwitcher>
-      </div>
+      <GuidePanel poster>
+        <Heading level="2" size="small" spacing>
+          Informasjon om utbetalingsportalen
+        </Heading>
+        <BodyLong spacing>
+          Utbetalingsportalen er en ny platform som på sikt skal overta
+          funksjoner fra Økonomiportalen og Abetal i en ny og forbedret versjon.
+        </BodyLong>
+      </GuidePanel>
     </div>
-  </main>
+    <div>
+      <AppSwitcher
+        server:defer
+        adGroups={userInfo.adGroups}
+        client:only="react"
+      >
+        <AppSwitcherSkeleton slot="fallback" />
+      </AppSwitcher>
+    </div>
+  </div>
 </Layout>
