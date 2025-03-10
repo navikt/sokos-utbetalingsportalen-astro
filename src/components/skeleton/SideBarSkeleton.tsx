@@ -1,5 +1,5 @@
 import { Skeleton } from '@navikt/ds-react';
-import styles from '../sidebar/Sidebar.module.css';
+import styles from '../sidebar/SideBar.module.css';
 
 export default function SideBarSkeleton() {
   return (
