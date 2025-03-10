@@ -1,8 +1,7 @@
 ---
 import styles from './Layout.module.css';
 import Header from '../components/header/header.astro';
-import SideBar from 'src/components/sidebar/SideBar';
-import Sidebar from 'src/components/sidebar/sidebar.astro';
+import SideBar from 'src/components/sidebar/sidebar.astro';
 ---
 
 <!doctype html>
@@ -25,7 +24,7 @@ import Sidebar from 'src/components/sidebar/sidebar.astro';
   </head>
   <body class="main">
     <Header />
-    <Sidebar />
+    <SideBar />
     <main class={styles.container}>
       <slot />
     </main>

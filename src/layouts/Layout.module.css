@@ -2,8 +2,10 @@ body {
   background-color: var(--a-bg-subtle);
 }
 
-.main {
-
+:global(body.sidebar-open) .container {
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .container {
@@ -17,5 +19,4 @@ body {
   .container {
     padding: 4rem 1.5rem 0 4rem;
   }
-  
 }
