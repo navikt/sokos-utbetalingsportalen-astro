@@ -32,15 +32,17 @@ export default function SideBar({ adGroups }: SideBarProps) {
 
   const renderSideBarLink = ({
     children,
-    to,
-  }: PropsWithChildren & { to: string }) => {
+    route,
+  }: PropsWithChildren & { route: string }) => {
     const isActive =
-      typeof window !== 'undefined' && window.location.pathname === to;
+      typeof window !== 'undefined' &&
+      (window.location.pathname === route ||
+        (route !== '/' && window.location.pathname.startsWith(route + '/')));
 
     return (
       <Link
         className={`${styles.sidebarLink} ${isActive ? styles.active : ''}`}
-        href={to}
+        href={route}
       >
         <div className={styles.sidebarLinkChild}>{children}</div>
       </Link>
@@ -64,7 +66,7 @@ export default function SideBar({ adGroups }: SideBarProps) {
     return authorizedApps.map((page) => (
       <li key={page.app} className={styles.sidebarLinks}>
         {renderSideBarLink({
-          to: page.route,
+          route: page.route,
           children: page.title,
         })}
       </li>
@@ -88,7 +90,7 @@ export default function SideBar({ adGroups }: SideBarProps) {
       <ul className={styles.sidebarList}>
         <li className={styles.sidebarLinks}>
           {renderSideBarLink({
-            to: '/',
+            route: '/',
             children: (
               <>
                 <HouseIcon className={styles.iconStyle} title="Hus ikon" />
