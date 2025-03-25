@@ -50,3 +50,11 @@ spec:
 
     - name: UTBETALINGSPORTALEN_URL
       value: sokos-utbetalingsportalen-astro.intern.dev.nav.no
+
+    # sokos-oppdrag
+    - name: SOKOS_OPPDRAG_API
+      value: https://sokos-oppdrag.dev-fss-pub.nais.io
+    - name: SOKOS_OPPDRAG_API_AUDIENCE
+      value: api://dev-fss.okonomi.sokos-oppdrag/.default
+    - name: SOKOS_OPPDRAG_PROXY
+      value: "/oppdrag-api"
