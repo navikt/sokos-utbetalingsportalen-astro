@@ -1,0 +1,60 @@
+apiVersion: 'nais.io/v1alpha1'
+kind: 'Application'
+metadata:
+  name: sokos-utbetalingsportalen-astro-qx
+  namespace: okonomi
+  labels:
+    team: okonomi
+
+spec:
+  image: {{ image }}
+  port: 3000
+  liveness:
+    path: /api/internal/isAlive
+    initialDelay: 10
+  readiness:
+    path: /api/internal/isReady
+    initialDelay: 10
+  replicas:
+    min: 1
+    max: 2
+  azure:
+    application:
+      enabled: true
+      claims:
+        groups:
+          - id: "0de8d01f-8ad0-4391-841c-55392956bc17" # 0000-GA-SOKOS-MF-Attestasjon
+          - id: "e0023d91-26bc-4d5d-95ba-3148b6123afc" # 0000-GA-SOKOS-MF-OppdragsInfo
+        extra:
+          - "NAVident"
+    sidecar:
+      enabled: true
+      autoLogin: true
+      autoLoginIgnorePaths:
+        - /internal/*
+  accessPolicy:
+    outbound:
+      external:
+        - host: sokos-oppdrag.dev-fss-pub.nais.io
+  ingresses:
+    - "https://sokos-utbetalingsportalen-astro-qx.intern.dev.nav.no"
+    - "https://sokos-utbetalingsportalen-astro-qx.ansatt.dev.nav.no"
+  resources:
+    limits:
+      memory: 768Mi
+    requests:
+      cpu: '20m'
+      memory: 128Mi
+
+  env:
+
+    - name: UTBETALINGSPORTALEN_URL
+      value: sokos-utbetalingsportalen-astro-qx.intern.dev.nav.no
+
+    # sokos-oppdrag
+    - name: SOKOS_OPPDRAG_API
+      value: https://sokos-oppdrag-qx.dev-fss-pub.nais.io
+    - name: SOKOS_OPPDRAG_API_AUDIENCE
+      value: api://dev-fss.okonomi.sokos-oppdrag-qx/.default
+    - name: SOKOS_OPPDRAG_PROXY
+      value: "/oppdrag-api"

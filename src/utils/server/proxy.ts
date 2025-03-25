@@ -1,37 +1,32 @@
 import type { APIContext, APIRoute } from 'astro';
 import { getOboToken } from 'src/utils/server/token';
 
-type ProxyUrl = {
+type ProxyConfig = {
   apiProxy: string;
   apiUrl: string;
+  audience: string;
 };
 
-type ProxyAudience = {
-  cluster: string;
-  namespace: string;
-  application: string;
-};
-
-function getProxyUrl(request: Request, proxyUrl: ProxyUrl): URL {
+function getProxyUrl(request: Request, proxyConfig: ProxyConfig): URL {
+  console.log('process env', process.env.UTBETALINGSPORTALEN_URL);
+  console.log(
+    'proxyConfig',
+    proxyConfig.apiProxy,
+    proxyConfig.apiUrl,
+    proxyConfig.audience,
+  );
   const url = request.url.replace(
-    `https://${process.env.UTBETALINGSPORTALEN_URL}${proxyUrl.apiProxy}`,
-    proxyUrl.apiUrl,
+    `https://${process.env.UTBETALINGSPORTALEN_URL}${proxyConfig.apiProxy}`,
+    proxyConfig.apiUrl,
   );
   return new URL(url);
 }
 
-function getProxyAudience(audience: ProxyAudience): string {
-  return `api://${audience.cluster}.${audience.namespace}.${audience.application}/.default`;
-}
-
-export const routeProxyWithOboToken = (
-  proxyUrl: ProxyUrl,
-  audienceConfig: ProxyAudience,
-): APIRoute => {
+export const routeProxyWithOboToken = (proxyConfig: ProxyConfig): APIRoute => {
   return async (context: APIContext) => {
-    const audience = getProxyAudience(audienceConfig);
+    const audience = proxyConfig.audience;
     const token = await getOboToken(context.locals.token, audience);
-    const url = getProxyUrl(context.request, proxyUrl);
+    const url = getProxyUrl(context.request, proxyConfig);
 
     const response = await fetch(url.href, {
       method: context.request.method,
