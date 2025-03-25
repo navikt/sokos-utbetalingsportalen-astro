@@ -9,7 +9,12 @@ type ProxyConfig = {
 
 function getProxyUrl(request: Request, proxyConfig: ProxyConfig): URL {
   console.log('process env', process.env.UTBETALINGSPORTALEN_URL);
-  console.log('proxyConfig', proxyConfig.apiProxy, proxyConfig.apiUrl, proxyConfig.audience);
+  console.log(
+    'proxyConfig',
+    proxyConfig.apiProxy,
+    proxyConfig.apiUrl,
+    proxyConfig.audience,
+  );
   const url = request.url.replace(
     `https://${process.env.UTBETALINGSPORTALEN_URL}${proxyConfig.apiProxy}`,
     proxyConfig.apiUrl,
