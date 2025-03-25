@@ -4,10 +4,12 @@ import { getOboToken } from 'src/utils/server/token';
 type ProxyConfig = {
   apiProxy: string;
   apiUrl: string;
-  audience: string
+  audience: string;
 };
 
 function getProxyUrl(request: Request, proxyConfig: ProxyConfig): URL {
+  console.log('process env', process.env.UTBETALINGSPORTALEN_URL);
+  console.log('proxyConfig', proxyConfig.apiProxy, proxyConfig.apiUrl, proxyConfig.audience);
   const url = request.url.replace(
     `https://${process.env.UTBETALINGSPORTALEN_URL}${proxyConfig.apiProxy}`,
     proxyConfig.apiUrl,
@@ -15,9 +17,7 @@ function getProxyUrl(request: Request, proxyConfig: ProxyConfig): URL {
   return new URL(url);
 }
 
-export const routeProxyWithOboToken = (
-  proxyConfig: ProxyConfig,
-): APIRoute => {
+export const routeProxyWithOboToken = (proxyConfig: ProxyConfig): APIRoute => {
   return async (context: APIContext) => {
     const audience = proxyConfig.audience;
     const token = await getOboToken(context.locals.token, audience);
