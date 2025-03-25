@@ -60,5 +60,17 @@ jobs:
         uses: 'nais/deploy/actions/deploy@v2'
         env:
           CLUSTER: 'dev-gcp'
-          RESOURCE: .nais/naiserator-dev.yaml
+          RESOURCE: .nais/naiserator-q1.yaml
+          VAR: image=${{ needs.build.outputs.image }},version=${{ github.sha }}
+
+  deploy-dev-qx:
+    runs-on: 'ubuntu-latest'
+    needs: 'build'
+    steps:
+      - uses: 'actions/checkout@v3'
+      - name: 'Deploy'
+        uses: 'nais/deploy/actions/deploy@v2'
+        env:
+          CLUSTER: 'dev-gcp'
+          RESOURCE: .nais/naiserator-qx.yaml
           VAR: image=${{ needs.build.outputs.image }},version=${{ github.sha }}
