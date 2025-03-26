@@ -1,9 +1,10 @@
 ---
 import styles from './environmentbanner.module.css';
 
-type ApplicationEnvironment = 'QX' | 'Q1' | null;
+// Define a union type for possible environment values
+type ApplicationEnvironment = 'LOCAL' | `TEST ${string}` | null | '';
 
-function getApplicationEnvironment(): ApplicationEnvironment | string {
+function getApplicationEnvironment(): ApplicationEnvironment {
   if (!process.env.NAIS_APP_NAME) return 'LOCAL';
 
   if (process.env.NAIS_CLUSTER_NAME !== 'dev-gcp') return null;
@@ -15,7 +16,7 @@ function getApplicationEnvironment(): ApplicationEnvironment | string {
 
   if (appName === 'sokos-utbetalingsportalen-astro') return 'TEST Q1';
 
-  return '';
+  return ''; // Default fallback return
 }
 
 const environment = getApplicationEnvironment();
