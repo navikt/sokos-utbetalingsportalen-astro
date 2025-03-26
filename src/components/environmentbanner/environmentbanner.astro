@@ -1,7 +1,6 @@
 ---
 import styles from './environmentbanner.module.css';
 
-// Define a union type for possible environment values
 type ApplicationEnvironment = 'LOCAL' | `TEST ${string}` | null | '';
 
 function getApplicationEnvironment(): ApplicationEnvironment {
@@ -16,7 +15,7 @@ function getApplicationEnvironment(): ApplicationEnvironment {
 
   if (appName === 'sokos-utbetalingsportalen-astro') return 'TEST Q1';
 
-  return ''; // Default fallback return
+  return '';
 }
 
 const environment = getApplicationEnvironment();
