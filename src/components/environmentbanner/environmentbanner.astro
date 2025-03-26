@@ -4,32 +4,16 @@ import styles from './environmentbanner.module.css';
 type ApplicationEnvironment = 'QX' | 'Q1' | null;
 
 function getApplicationEnvironment(): ApplicationEnvironment | string {
-  // Return LOCAL when running locally
-  if (!process.env.NAIS_APP_NAME) {
-    return 'LOCAL';
-  }
+  if (!process.env.NAIS_APP_NAME) return 'LOCAL';
 
-  // Check if running in dev-gcp cluster using NAIS_CLUSTER_NAME
-  const isDevGcp = process.env.NAIS_CLUSTER_NAME === 'dev-gcp';
-
-  // Only proceed with environment detection if in dev-gcp
-  if (!isDevGcp) {
-    return null; // Don't show banner in other clusters
-  }
+  if (process.env.NAIS_CLUSTER_NAME !== 'dev-gcp') return null;
 
   const appName = process.env.NAIS_APP_NAME;
 
-  // If app name has a suffix like -qx or -q2, extract it
   const envMatch = appName.match(/sokos-utbetalingsportalen-astro-([^-]+)$/);
-  if (envMatch && envMatch[1]) {
-    // Return the environment identifier (qx, q2, q3, etc.) in uppercase
-    return `TEST ${envMatch[1].toUpperCase()}`;
-  }
+  if (envMatch?.[1]) return `TEST ${envMatch[1].toUpperCase()}`;
 
-  // If no suffix but the app name is sokos-utbetalingsportalen-astro, it's q1
-  if (appName === 'sokos-utbetalingsportalen-astro') {
-    return 'TEST Q1';
-  }
+  if (appName === 'sokos-utbetalingsportalen-astro') return 'TEST Q1';
 
   return '';
 }
@@ -37,18 +21,22 @@ function getApplicationEnvironment(): ApplicationEnvironment | string {
 const environment = getApplicationEnvironment();
 ---
 
-<div class={styles.banner}>
-  <svg
-    aria-hidden="true"
-    role="img"
-    xmlns="http://www.w3.org/2000/svg"
-    height="110"
-    width="110"
-    class={styles.bannerIcon}
-  >
-    <polygon points="0,0 110,0 110,110"></polygon>
-    <text x="25" y="10" transform="rotate(45 20,40)">
-      {environment}
-    </text>
-  </svg>
-</div>
+{
+  environment && (
+    <div class={styles.banner}>
+      <svg
+        aria-hidden="true"
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+        height="110"
+        width="110"
+        class={styles.bannerIcon}
+      >
+        <polygon points="0,0 110,0 110,110" />
+        <text x="25" y="10" transform="rotate(45 20,40)">
+          {environment}
+        </text>
+      </svg>
+    </div>
+  )
+}
