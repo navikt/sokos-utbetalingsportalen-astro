@@ -2,6 +2,7 @@
 import styles from './Layout.module.css';
 import Header from '../components/header/header.astro';
 import SideBar from 'src/components/sidebar/sidebar.astro';
+import Environmentbanner from 'src/components/environmentbanner/environmentbanner.astro';
 ---
 
 <!doctype html>
@@ -24,6 +25,7 @@ import SideBar from 'src/components/sidebar/sidebar.astro';
   </head>
   <body class="main">
     <Header />
+    <Environmentbanner />
     <SideBar />
     <main class={styles.container}>
       <slot />

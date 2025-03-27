@@ -50,6 +50,8 @@ spec:
 
     - name: UTBETALINGSPORTALEN_URL
       value: sokos-utbetalingsportalen-astro.intern.dev.nav.no
+    - name: UTBETALINGSPORTALEN_ENVIRONMENT
+      value: q1
 
     # sokos-oppdrag
     - name: SOKOS_OPPDRAG_API
