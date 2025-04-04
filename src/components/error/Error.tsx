@@ -1,4 +1,4 @@
-import { BodyShort, Box, Heading, Link, List } from '@navikt/ds-react';
+import { BodyShort, Heading, Link } from '@navikt/ds-react';
 import { ChatExclamationmarkIcon } from '@navikt/aksel-icons';
 import styles from './Error.module.css';
 
