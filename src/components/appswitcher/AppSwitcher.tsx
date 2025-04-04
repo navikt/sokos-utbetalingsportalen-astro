@@ -19,15 +19,18 @@ export default function AppSwitcher(props: AppSwitcherProps) {
   const [showApps, setShowApps] = useState<string>('');
 
   function appCards() {
-    return (showApps ? allApps : authorizedApps).map((app) => (
-      <AppCard
-        key={app.app}
-        hasAccess={authorizedApps.includes(app)}
-        route={app.route}
-        title={app.title}
-        description={app.description}
-      />
-    ));
+    return (showApps ? allApps : authorizedApps)
+      .slice()
+      .sort((a, b) => a.title.localeCompare(b.title))
+      .map((app) => (
+        <AppCard
+          key={app.app}
+          hasAccess={authorizedApps.includes(app)}
+          route={app.route}
+          title={app.title}
+          description={app.description}
+        />
+      ));
   }
 
   return (

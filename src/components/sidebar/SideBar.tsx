@@ -63,14 +63,17 @@ export default function SideBar({ adGroups }: SideBarProps) {
   }
 
   function getMicrofrontendLinks() {
-    return authorizedApps.map((page) => (
-      <li key={page.app} className={styles.sidebarLinks}>
-        {renderSideBarLink({
-          route: page.route,
-          children: page.title,
-        })}
-      </li>
-    ));
+    return authorizedApps
+      .slice()
+      .sort((a, b) => a.title.localeCompare(b.title))
+      .map((page) => (
+        <li key={page.app} className={styles.sidebarLinks}>
+          {renderSideBarLink({
+            route: page.route,
+            children: page.title,
+          })}
+        </li>
+      ));
   }
 
   return (

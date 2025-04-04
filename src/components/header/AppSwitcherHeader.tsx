@@ -14,16 +14,19 @@ export default function AppSwitcherHeader(props: AppSwitcherHeaderProps) {
   );
 
   function appSwitcherList() {
-    return authorizedApps.map((page) => (
-      <Dropdown.Menu.GroupedList.Item
-        as="a"
-        target="_blank"
-        href={page.route}
-        key={page.title + 'dropdown'}
-      >
-        <div aria-hidden>{page.title}</div>
-      </Dropdown.Menu.GroupedList.Item>
-    ));
+    return authorizedApps
+      .slice()
+      .sort((a, b) => a.title.localeCompare(b.title))
+      .map((page) => (
+        <Dropdown.Menu.GroupedList.Item
+          as="a"
+          target="_blank"
+          href={page.route}
+          key={page.title + 'dropdown'}
+        >
+          <div aria-hidden>{page.title}</div>
+        </Dropdown.Menu.GroupedList.Item>
+      ));
   }
 
   return (
