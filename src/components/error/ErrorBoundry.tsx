@@ -1,5 +1,5 @@
 import React, { type ErrorInfo } from 'react';
-import ErrorPage from './Error';
+import Error from './Error';
 //import { logFaroError } from "../../utils/grafanaFaro";
 
 interface Props {
@@ -29,7 +29,7 @@ class ErrorBoundary extends React.Component<Props, State> {
 
   render(): React.ReactNode {
     if (this.state.hasError) {
-      return <ErrorPage />;
+      return <Error />;
     }
     return this.props.children;
   }

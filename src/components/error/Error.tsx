@@ -1,21 +1,29 @@
 import { BodyShort, Box, Heading, Link, List } from '@navikt/ds-react';
+import { ChatExclamationmarkIcon } from '@navikt/aksel-icons';
+import styles from './Error.module.css';
 
-const ErrorPage = () => (
-  <Box paddingBlock="20 16" data-aksel-template="404-v2">
-    <div>
-      <Heading level="1" size="large" spacing>
-        {' '}
-        Feil har skjedd{' '}
+type ErrorPageType = {
+  title?: string;
+  message?: string;
+};
+
+export default function Error({
+  title = 'Feil',
+  message = 'En feil har skjedd! Prøv logg inn på nytt.',
+}: ErrorPageType) {
+  return (
+    <div className={styles['error']}>
+      <ChatExclamationmarkIcon
+        title="Chat exclamationmark ikon"
+        fontSize="6rem"
+      />
+      <Heading level="1" size={'medium'}>
+        {title}
       </Heading>
-      <BodyShort> En eller annen tekst skal komme </BodyShort>
-      <List>
-        <List.Item>Bruk gjerne søket eller menyen</List.Item>
-        <List.Item>
-          <Link href="/">Gå til forsiden</Link>
-        </List.Item>
-      </List>
+      <BodyShort>{message}</BodyShort>
+      <Link href="/" variant="action">
+        Tilbake til startsiden
+      </Link>
     </div>
-  </Box>
-);
-
-export default ErrorPage;
+  );
+}
