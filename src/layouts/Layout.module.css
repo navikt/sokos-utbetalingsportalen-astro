@@ -22,8 +22,5 @@ body {
 }
 
 main {
-  display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 4rem;
+  margin: 2rem;
 }
