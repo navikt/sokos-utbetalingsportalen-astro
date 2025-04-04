@@ -1,12 +1,12 @@
----
 import { BodyShort, Box, Heading, Link, List } from '@navikt/ds-react';
-import Layout from '../layouts/Layout.astro';
----
 
-<Layout>
+const ErrorPage = () => (
   <Box paddingBlock="20 16" data-aksel-template="404-v2">
     <div>
-      <Heading level="1" size="large" spacing> Feil har skjedd </Heading>
+      <Heading level="1" size="large" spacing>
+        {' '}
+        Feil har skjedd{' '}
+      </Heading>
       <BodyShort> En eller annen tekst skal komme </BodyShort>
       <List>
         <List.Item>Bruk gjerne søket eller menyen</List.Item>
@@ -16,4 +16,6 @@ import Layout from '../layouts/Layout.astro';
       </List>
     </div>
   </Box>
-</Layout>
+);
+
+export default ErrorPage;

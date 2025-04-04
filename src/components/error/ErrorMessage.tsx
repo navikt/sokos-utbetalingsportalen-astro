@@ -1,5 +1,4 @@
 import { Alert } from '@navikt/ds-react';
-import styles from './ErrorMessage.module.css';
 
 export default function ErrorMessage(props: { error: Error }) {
   return (

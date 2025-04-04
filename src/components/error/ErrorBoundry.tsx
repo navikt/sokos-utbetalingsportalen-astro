@@ -1,5 +1,5 @@
 import React, { type ErrorInfo } from 'react';
-import ErrorPage from '../../pages/Error.astro';
+import ErrorPage from './Error';
 //import { logFaroError } from "../../utils/grafanaFaro";
 
 interface Props {
