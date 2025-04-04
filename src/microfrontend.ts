@@ -48,13 +48,13 @@ export const microfrontendConfigArray: MicroFrontend[] = [
     naisAppName: 'sokos-up-fastedata',
   },
   {
-    app: 'TEMPLATE',
-    title: 'Template',
-    description: 'Template for new apps',
-    adGroupDevelopment: 'e0023d91-26bc-4d5d-95ba-3148b6123afa',
+    app: 'GRENSESNITTMAL',
+    title: 'Grensesnittmal',
+    description: "Dette er en blank mal for et grensesnitt",
+    adGroupDevelopment: '1b717a23-d376-471c-9fc6-356299fadc2b',
     adGroupProduction: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
-    route: '/template',
-    naisAppName: 'sokos-up-template',
+    route: '/grensesnittmal',
+    naisAppName: 'sokos-mikrofrontend-template',
   },
 ];
 

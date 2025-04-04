@@ -9,14 +9,14 @@ import Microfrontend from '../components/microfrontend/Microfrontend';
 import Layout from '../layouts/Layout.astro';
 import NoAccess from './NoAccess.astro';
 
-const oppdragsinfoConfig = getMicrofrontendConfig('oppdragsinfo');
+const grensesnittmalConfig = getMicrofrontendConfig('grensesnittmal');
 
 const hasAccess = hasAccessToAdGroup(
   Astro.locals.userInfo.adGroups,
   fetchMicrofrontendAdGroup({
-    adGroupDevelopment: oppdragsinfoConfig.adGroupDevelopment,
-    adGroupProduction: oppdragsinfoConfig.adGroupProduction,
-  }),
+    adGroupDevelopment: grensesnittmalConfig.adGroupDevelopment,
+    adGroupProduction: grensesnittmalConfig.adGroupProduction,
+  })
 );
 ---
 
@@ -25,7 +25,7 @@ const hasAccess = hasAccessToAdGroup(
     {
       hasAccess ? (
         <Microfrontend
-          url={fetchMicrofrontendBundleUrl(oppdragsinfoConfig.naisAppName)}
+          url={fetchMicrofrontendBundleUrl(grensesnittmalConfig.naisAppName)}
           userData={Astro.locals.userInfo}
           client:only="react"
         />
