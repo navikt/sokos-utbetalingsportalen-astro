@@ -98,5 +98,6 @@ export function getAllApps() {
     adGroupProduction: page.adGroupProduction,
     route: page.route,
     naisAppName: page.naisAppName,
-  }));
+  }))
+  .sort((a, b) => a.title.localeCompare(b.title));
 }
