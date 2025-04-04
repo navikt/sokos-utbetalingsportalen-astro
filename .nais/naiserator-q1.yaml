@@ -23,8 +23,8 @@ spec:
       enabled: true
       claims:
         groups:
-          - id: "0de8d01f-8ad0-4391-841c-55392956bc17" # 0000-GA-SOKOS-MF-Attestasjon
-          - id: "e0023d91-26bc-4d5d-95ba-3148b6123afc" # 0000-GA-SOKOS-MF-OppdragsInfo
+          - id: 0de8d01f-8ad0-4391-841c-55392956bc17 # 0000-GA-SOKOS-MF-Attestasjon
+          - id: e0023d91-26bc-4d5d-95ba-3148b6123afc # 0000-GA-SOKOS-MF-OppdragsInfo
           - id: 48a80bbb-be45-4ef6-aab8-21604f057f47 # 0000-GA-SOKOS-MF-Venteregister
           - id: 7e0c2ad1-d0e7-4fa8-8169-7a9d68435644 # 0000-GA-SOKOS-MF-Fastedata
         extra:
@@ -39,8 +39,8 @@ spec:
       external:
         - host: sokos-oppdrag.dev-fss-pub.nais.io
   ingresses:
-    - "https://sokos-utbetalingsportalen-astro.intern.dev.nav.no"
-    - "https://sokos-utbetalingsportalen-astro.ansatt.dev.nav.no"
+    - https://sokos-utbetalingsportalen-astro.intern.dev.nav.no
+    - https://sokos-utbetalingsportalen-astro.ansatt.dev.nav.no
   resources:
     limits:
       memory: 768Mi

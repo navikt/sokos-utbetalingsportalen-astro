@@ -44,8 +44,8 @@ export const microfrontendConfigArray: MicroFrontend[] = [
     description: 'En beskrivelse',
     adGroupDevelopment: '7e0c2ad1-d0e7-4fa8-8169-7a9d68435644',
     adGroupProduction: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
-    route: '/venteregister',
-    naisAppName: 'sokos-up-venteregister',
+    route: '/fastedata',
+    naisAppName: 'sokos-up-fastedata',
   },
   {
     app: 'TEMPLATE',
