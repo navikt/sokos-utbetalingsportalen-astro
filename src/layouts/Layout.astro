@@ -1,8 +1,8 @@
 ---
-import styles from './Layout.module.css';
-import Header from '../components/header/header.astro';
-import SideBar from 'src/components/sidebar/sidebar.astro';
 import Environmentbanner from 'src/components/environmentbanner/environmentbanner.astro';
+import SideBar from 'src/components/sidebar/sidebar.astro';
+import Header from '../components/header/header.astro';
+import styles from './Layout.module.css';
 ---
 
 <!doctype html>
@@ -25,8 +25,8 @@ import Environmentbanner from 'src/components/environmentbanner/environmentbanne
     <script type="importmap">
       {
         "imports": {
-          "react": "https://cdn.nav.no/okonomi/sokos-shared-dependencies/packages/react/19.0.0/react.mjs",
-          "react-dom": "https://cdn.nav.no/okonomi/sokos-shared-dependencies/packages/react-dom/19.0.0/react-dom.mjs"
+          "react": "https://esm.sh/react@18",
+          "react-dom": "https://esm.sh/react-dom@18"
         }
       }
     </script>
