@@ -50,7 +50,7 @@ export const microfrontendConfigArray: MicroFrontend[] = [
   {
     app: 'GRENSESNITTMAL',
     title: 'Grensesnittmal',
-    description: "Dette er en blank mal for et grensesnitt",
+    description: 'Dette er en blank mal for et grensesnitt',
     adGroupDevelopment: '1b717a23-d376-471c-9fc6-356299fadc2b',
     adGroupProduction: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
     route: '/grensesnittmal',
