@@ -89,15 +89,16 @@ export function getMicrofrontendConfig(appName: string): MicroFrontend {
 }
 
 export function getAllApps() {
-  return microfrontendConfigArray.map((page) => ({
-    app: page.app,
-    title: page.title,
-    description: page.description,
-    url: page.route,
-    adGroupDevelopment: page.adGroupDevelopment,
-    adGroupProduction: page.adGroupProduction,
-    route: page.route,
-    naisAppName: page.naisAppName,
-  }))
-  .sort((a, b) => a.title.localeCompare(b.title));
+  return microfrontendConfigArray
+    .map((page) => ({
+      app: page.app,
+      title: page.title,
+      description: page.description,
+      url: page.route,
+      adGroupDevelopment: page.adGroupDevelopment,
+      adGroupProduction: page.adGroupProduction,
+      route: page.route,
+      naisAppName: page.naisAppName,
+    }))
+    .sort((a, b) => a.title.localeCompare(b.title));
 }
