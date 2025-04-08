@@ -1,7 +1,8 @@
 .home {
     margin: auto 2rem;
     min-width: 380px;
-    max-width: 1600px;
+    max-width: 1800px;
+    width: 100%;
 }
 
 .home-heading {
