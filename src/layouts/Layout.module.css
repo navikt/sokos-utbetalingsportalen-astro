@@ -2,12 +2,6 @@ body {
   background-color: var(--a-bg-subtle);
 }
 
-:global(body.sidebar-open) .container {
-  opacity: 0.4;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
 .container {
   display: flex;
   justify-content: center;
@@ -15,7 +9,13 @@ body {
   padding-top: 4rem;
 }
 
-@media (max-width: 1200px) {
+:global(body.sidebar-open) .container {
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+@media (width <=1200px) {
   .container {
     padding: 4rem 1.5rem 0 4rem;
   }
