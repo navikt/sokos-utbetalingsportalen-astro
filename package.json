@@ -7,7 +7,6 @@
     "dev": "astro dev",
     "build": "astro check && astro build",
     "mock": "tsx mock/server.ts",
-    "check": "astro check",
     "preview": "astro preview",
     "stylelint": "stylelint '**/*.css'",
     "prepare": "husky"
