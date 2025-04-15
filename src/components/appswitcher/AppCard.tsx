@@ -1,7 +1,6 @@
-import { Heading } from '@navikt/ds-react';
-import styles from './AppCard.module.css';
 import { ChevronRightIcon } from '@navikt/aksel-icons';
-import { Tooltip } from '@navikt/ds-react';
+import { Heading, Tooltip } from '@navikt/ds-react';
+import styles from './AppCard.module.css';
 
 type AppCardProps = {
   hasAccess: boolean;

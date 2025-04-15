@@ -1,5 +1,6 @@
 import React, { type ErrorInfo } from 'react';
 import Error from './Error';
+
 //import { logFaroError } from "../../utils/grafanaFaro";
 
 interface Props {

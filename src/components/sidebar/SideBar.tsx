@@ -1,10 +1,10 @@
+import type { PropsWithChildren } from 'react';
+import { useEffect, useState } from 'react';
+import { microfrontendConfigArray as allApps } from 'src/microfrontend';
+import { hasAccessToAdGroup } from 'src/utils/common';
 import { HouseIcon, MenuHamburgerIcon, XMarkIcon } from '@navikt/aksel-icons';
 import { Button, Link } from '@navikt/ds-react';
 import styles from './SideBar.module.css';
-import { microfrontendConfigArray as allApps } from 'src/microfrontend';
-import { hasAccessToAdGroup } from 'src/utils/common';
-import { useEffect, useState } from 'react';
-import type { PropsWithChildren } from 'react';
 
 type SideBarProps = {
   adGroups: string[];
