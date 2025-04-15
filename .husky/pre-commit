@@ -1,1 +1,1 @@
-pnpm run check && pnpm lint-staged
+pnpm run check && pnpm run build && pnpm lint-staged
