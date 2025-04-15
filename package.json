@@ -3,14 +3,14 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "astro": "astro",
     "dev": "astro dev",
-    "check": "astro check",
     "build": "astro check && astro build",
     "mock": "tsx mock/server.ts",
+    "check": "astro check",
     "preview": "astro preview",
-    "astro": "astro",
-    "prepare": "husky",
-    "stylelint": "stylelint '**/*.css'"
+    "stylelint": "stylelint '**/*.css'",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -43,40 +43,6 @@
     "prettier": "3.3.3",
     "tsx": "4.7.1",
     "typescript": "5.3.3"
-  },
-  "stylelint": {
-    "extends": [
-      "stylelint-config-standard",
-      "@navikt/aksel-stylelint/recommended"
-    ],
-    "ignoreFiles": "dist/**/*"
-  },
-  "prettier": {
-    "plugins": [
-      "@trivago/prettier-plugin-sort-imports"
-    ],
-    "overrides": [
-      {
-        "files": "**/*.module.css",
-        "options": {
-          "plugins": [
-            "@trivago/prettier-plugin-sort-imports"
-          ]
-        }
-      },
-      {
-        "files": "**/*.css",
-        "options": {
-          "printWidth": 130
-        }
-      }
-    ],
-    "importOrder": [
-      "^@navikt/(.*)$",
-      "^@/(.*)$",
-      "^[./]"
-    ],
-    "importOrderSortSpecifiers": true
   },
   "lint-staged": {
     "*.css": "stylelint --fix",

@@ -1,6 +1,6 @@
 import { Heading, Skeleton, Switch } from '@navikt/ds-react';
-import styles from './AppSwitcherSkeleton.module.css';
 import appSwitcherStyles from '../appswitcher/AppSwitcher.module.css';
+import styles from './AppSwitcherSkeleton.module.css';
 
 export default function AppSwitcherSkeleton() {
   return (

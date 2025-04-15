@@ -1,5 +1,5 @@
-import { BodyShort, Heading, Link } from '@navikt/ds-react';
 import { ChatExclamationmarkIcon } from '@navikt/aksel-icons';
+import { BodyShort, Heading, Link } from '@navikt/ds-react';
 import styles from './Error.module.css';
 
 type ErrorPageType = {

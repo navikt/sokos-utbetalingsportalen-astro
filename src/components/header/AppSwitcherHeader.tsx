@@ -1,6 +1,6 @@
+import { hasAccessToAdGroup } from 'src/utils/common.ts';
 import { MenuGridIcon } from '@navikt/aksel-icons';
 import { Dropdown, InternalHeader } from '@navikt/ds-react';
-import { hasAccessToAdGroup } from 'src/utils/common.ts';
 import { microfrontendConfigArray as allApps } from '../../microfrontend.ts';
 
 type AppSwitcherHeaderProps = {
